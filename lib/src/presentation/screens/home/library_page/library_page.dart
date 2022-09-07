@@ -139,7 +139,8 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
                 height: MediaQuery.of(context).size.height,
                 imageUrl: e.value,
                 title: e.key,
-                onClickAction: () => context.pushNamed(AppRoutes.meditationScreen.name),
+                //onClickAction: () => context.pushNamed(AppRoutes.meditationScreen.name),
+                onClickAction: () => context.pushNamed(AppRoutes.musicPlaylistScreen.name),
               ),
             )
             .toList(),

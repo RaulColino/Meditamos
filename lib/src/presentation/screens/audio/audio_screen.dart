@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:meditamos/src/domain/entities/audio.dart';
 import 'package:meditamos/src/presentation/widgets/audioplayer/control_buttons.dart';
 import 'package:meditamos/src/presentation/widgets/audioplayer/seekbar.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -17,17 +18,15 @@ class PositionData {
 }
 
 class AudioScreen extends ConsumerStatefulWidget {
-  const AudioScreen({Key? key, required this.title}) : super(key: key);
+  const AudioScreen({Key? key, required this.audio}) : super(key: key);
 
-  final String title;
+  final Audio audio;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _AudioScreenState();
 }
 
 class _AudioScreenState extends ConsumerState<AudioScreen> {
-  final String audioUrl =
-      "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3";
   final AudioPlayer _player = AudioPlayer();
   late final audioSource;
 
@@ -54,6 +53,8 @@ class _AudioScreenState extends ConsumerState<AudioScreen> {
   }
 
   Future<void> _init() async {
+    //Get audio url from Audio object passed to AudioScreen
+    final String audioUrl = widget.audio.url;
     // Listen to errors during playback.
     _player.playbackEventStream.listen((event) {},
         onError: (Object e, StackTrace stackTrace) {
@@ -81,6 +82,7 @@ class _AudioScreenState extends ConsumerState<AudioScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Center(child: Text(widget.audio.title)),
         actions: [
           IconButton(
             onPressed: () {},

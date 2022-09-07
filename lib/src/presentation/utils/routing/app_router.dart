@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meditamos/src/domain/entities/audio.dart';
 import 'package:meditamos/src/domain/entities/video.dart';
 import 'package:meditamos/src/presentation/screens/audio/audio_screen.dart';
 import 'package:meditamos/src/presentation/screens/meditation/meditation_screen.dart';
@@ -66,27 +67,14 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        name: AppRoutes.videoScreen.name,
-        path: "/video/:id/:title",
-        pageBuilder: (context, state) {
-          final String id = state.params['id']!;
-          final String title = state.params['title']!;
-          return buildPageWithFadeTransition(
-            context: context,
-            state: state,
-            child: VideoScreen(videoId: id, title: title),
-          );
-        },
-      ),
-      GoRoute(
         name: AppRoutes.audioScreen.name,
-        path: "/audio/:title",
+        path: "/audio",
         pageBuilder: (context, state) {
-          final String title = state.params['title']!;
+          Audio audio = state.extra! as Audio;
           return buildPageWithFadeTransition(
             context: context,
             state: state,
-            child: AudioScreen(title: title),
+            child: AudioScreen(audio: audio),
           );
         },
       ),
@@ -101,21 +89,18 @@ class AppRouter {
           );
         },
       ),
-
-      // GoRoute(
-      //     name: AppRoutes.meditationScreen.name,
-      //     path: "/video",
-      //     pageBuilder: (context, state) {
-      //       Video video = state.extra! as Video;
-      //       return buildPageWithFadeTransition(
-      //         context: context,
-      //         state: state,
-      //         child: VideoScreen(
-      //           videoId: video.id,
-      //           title: video.title,
-      //         ),
-      //       );
-      //     }),
+      GoRoute(
+        name: AppRoutes.videoScreen.name,
+        path: "/video",
+        pageBuilder: (context, state) {
+          Video video = state.extra! as Video;
+          return buildPageWithFadeTransition(
+            context: context,
+            state: state,
+            child: VideoScreen(video: video),
+          );
+        },
+      ),
     ],
   );
 

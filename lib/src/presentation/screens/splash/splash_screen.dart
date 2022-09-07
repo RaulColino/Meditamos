@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meditamos/src/domain/entities/video.dart';
 import 'package:meditamos/src/presentation/utils/routing/app_router.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -25,15 +26,8 @@ class SplashScreen extends StatelessWidget {
               child: const Text("onboarding"),
             ),
             ElevatedButton(
-              onPressed: () => context.pushNamed(
-                AppRoutes.audioScreen.name,
-                params: {'title': "pid"},
-              ),
-              child: const Text("audio"),
-            ),
-            ElevatedButton(
-              onPressed: () => context.pushNamed(AppRoutes.musicPlaylistScreen.name),
-              child: const Text("playlist"),
+              onPressed: () => context.pushNamed(AppRoutes.videoScreen.name, extra: Video(videoId: "134614312", title: "testing video")),
+              child: const Text("video"),
             ),
           ],
         ),

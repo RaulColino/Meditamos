@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class SeekBar extends StatefulWidget {
   const SeekBar({
@@ -51,8 +52,9 @@ class _SeekBarState extends State<SeekBar> {
         ),
         SliderTheme(
           data: _sliderThemeData.copyWith(
+            trackShape: RectangularSliderTrackShape(),
             thumbShape: HiddenThumbComponentShape(),
-            trackHeight: 1.0,
+            trackHeight: 2.8,
             activeTrackColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
             inactiveTrackColor: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.5),
           ),

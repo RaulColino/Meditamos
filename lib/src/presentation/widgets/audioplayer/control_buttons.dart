@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 /// Displays the play/pause button and volume/speed sliders.
 class ControlButtons extends StatelessWidget {
@@ -60,16 +61,18 @@ class ControlButtons extends StatelessWidget {
               } else if (playing != true) {
                 //play
                 return CenterControlButton(
-                  icon: Icons.play_arrow_rounded,
-                  centerButtonsSize: centerButtonsSize,
+                  icon: PhosphorIcons.playFill,
+                  centerButtonsSize: centerButtonsSize * 0.6,
+                  containerSize: centerButtonsSize,
                   onClick: player.play,
                   showBorder: false,
                 );
               } else if (processingState != ProcessingState.completed) {
                 //pause
                 return CenterControlButton(
-                  icon: Icons.pause_rounded,
-                  centerButtonsSize: centerButtonsSize,
+                  icon: PhosphorIcons.pauseFill,
+                  centerButtonsSize: centerButtonsSize * 0.6,
+                  containerSize: centerButtonsSize,
                   onClick: player.pause,
                   showBorder: true,
                 );
@@ -78,6 +81,7 @@ class ControlButtons extends StatelessWidget {
                 return CenterControlButton(
                   icon: Icons.replay_rounded,
                   centerButtonsSize: centerButtonsSize,
+                  containerSize: centerButtonsSize,
                   onClick: () => player.seek(Duration.zero),
                   showBorder: false,
                 );
@@ -113,28 +117,30 @@ class CenterControlButton extends StatelessWidget {
     required this.onClick,
     required this.showBorder,
     required this.icon,
+    required this.containerSize,
   }) : super(key: key);
 
   final IconData icon;
   final double centerButtonsSize;
   final void Function()? onClick;
   final bool showBorder;
+  final double containerSize;
 
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: AlignmentDirectional.center, children: [
       if (showBorder)
         Container(
-          width: centerButtonsSize * 1.7,
-          height: centerButtonsSize * 1.7,
+          width: containerSize * 1.7,
+          height: containerSize * 1.7,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.onBackground.withOpacity(0.1),
             shape: BoxShape.circle,
           ),
         ),
       Container(
-        width: centerButtonsSize * 1.3,
-        height: centerButtonsSize * 1.3,
+        width: containerSize * 1.3,
+        height: containerSize * 1.3,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onBackground,
           shape: BoxShape.circle,

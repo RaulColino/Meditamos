@@ -47,10 +47,15 @@ class CircularButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      // onPressed: () => context.pushNamed(
+      //   AppRoutes.audioScreen.name,
+      //   params: {'title': "pid"},
+      // ),
       onPressed: () => context.pushNamed(
-        AppRoutes.audioScreen.name,
+        AppRoutes.musicPlaylistScreen.name,
         params: {'title': "pid"},
       ),
+
       // onPressed: () => context.pushNamed(
       //   AppRoutes.videoScreen.name,
       //   params: {'id': "123", 'title': "pid"},
