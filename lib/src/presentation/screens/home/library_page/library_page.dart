@@ -107,15 +107,8 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
           ),
           SizedBox(height: 15),
           //Grid
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: height * 0.6,
-                width: width * 0.85,
-                child: buildCategoriesGridView(context, isLeft),
-              ),
-            ],
+          Expanded(
+            child: buildCategoriesGridView(context, isLeft),
           ),
         ],
       ),
@@ -126,6 +119,7 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
     Map<String, String> data = isLeft ? meditation_list : music_list;
 
     return GridView.count(
+      shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       primary: false,
       crossAxisSpacing: 10,
@@ -139,8 +133,10 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
                 height: MediaQuery.of(context).size.height,
                 imageUrl: e.value,
                 title: e.key,
-                //onClickAction: () => context.pushNamed(AppRoutes.meditationScreen.name),
-                onClickAction: () => context.pushNamed(AppRoutes.musicPlaylistScreen.name),
+                onClickAction: () => isLeft
+                    //if toggle is on the left go to meditation screen else to music playlist screen
+                    ? context.pushNamed(AppRoutes.meditationScreen.name)
+                    : context.pushNamed(AppRoutes.musicPlaylistScreen.name),
               ),
             )
             .toList(),
