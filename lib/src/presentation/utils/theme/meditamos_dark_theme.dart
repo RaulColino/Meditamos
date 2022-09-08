@@ -11,12 +11,13 @@ class MeditamosDarkTheme {
         scaffoldBackground: MeditamosColors.charcoal,
         appBarBackground: MeditamosColors.charcoal,
         appBarElevation: 0,
-        surface: MeditamosColors
-            .surfaceGray, //Color for cards. surface from colorScheme doesnt work only this works.
+        surface: MeditamosColors.surfaceGray, //Color for cards. surface from colorScheme doesnt work only this works.
         //surfaceTint: MeditamosColors.grayDarker,
         useMaterial3ErrorColors: true,
+        
         // Text with a color that contrasts with the card and canvas colors.
-        textTheme: GoogleFonts.interTextTheme().copyWith(
+        // Modify Normal Text Theme colors here
+        textTheme: const TextTheme().copyWith(
           bodyMedium: const TextStyle(color: MeditamosColors.textGray),
           headlineSmall: const TextStyle(
             color: MeditamosColors.textGrayLighter,
@@ -25,19 +26,26 @@ class MeditamosDarkTheme {
             color: MeditamosColors.white,
             fontWeight: FontWeight.bold,
           ),
-          labelSmall: const TextStyle(
-            color: MeditamosColors.white,
+          titleLarge: const TextStyle(
+            color: MeditamosColors.red,
           ),
-          labelMedium: const TextStyle(
-            color: MeditamosColors.white,
-          ),
-          labelLarge: const TextStyle(
-            color: MeditamosColors.white,
-          ),
+          // labelSmall: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
+          // labelMedium: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
+          // labelLarge: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
         ),
+        fontFamily: GoogleFonts.inter().fontFamily,
+        
         // A text theme that contrasts with the primary color.
+        // Modify Text colors over primary color here
         primaryTextTheme: const TextTheme(
-          headline6: TextStyle(color: MeditamosColors.red),
+          //Equivalent to title large
+          headline6: TextStyle(color: MeditamosColors.green),
         ),
       );
 

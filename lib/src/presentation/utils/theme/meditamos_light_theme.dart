@@ -11,11 +11,12 @@ class MeditamosLightTheme {
         scaffoldBackground: MeditamosColors.whiteBackground,
         appBarBackground: MeditamosColors.whiteBackground,
         appBarElevation: 0,
-        surface: MeditamosColors.white, //Color for cards. surface from colorScheme doesnt work only this works.
+        surface: MeditamosColors
+            .white, //Color for cards. surface from colorScheme doesnt work only this works.
         //surfaceTint: MeditamosColors.grayDarker,
         useMaterial3ErrorColors: true,
         // Text with a color that contrasts with the card and canvas colors.
-        textTheme: GoogleFonts.interTextTheme().copyWith(
+        textTheme: const TextTheme().copyWith(
           bodyMedium: const TextStyle(color: MeditamosColors.textGray),
           headlineSmall: const TextStyle(
             color: MeditamosColors.textGray,
@@ -24,7 +25,18 @@ class MeditamosLightTheme {
             color: MeditamosColors.black,
             fontWeight: FontWeight.bold,
           ),
+          // labelSmall: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
+          // labelMedium: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
+          // labelLarge: const TextStyle(
+          //   color: MeditamosColors.textGray,
+          // ),
         ),
+        fontFamily: GoogleFonts.inter().fontFamily,
+
         // A text theme that contrasts with the primary color.
         primaryTextTheme: const TextTheme(
           headline6: TextStyle(
@@ -53,7 +65,8 @@ class MeditamosLightTheme {
     outline: Color.fromARGB(255, 240, 240, 240),
     background: Color.fromARGB(255, 255, 255, 255),
     onBackground: Color.fromARGB(255, 77, 77, 77),
-    surface: Color(0xffffffff), //this doesnt work. To modify surface go to FlexThemeData.dark() and change surface parameter
+    surface: Color(
+        0xffffffff), //this doesnt work. To modify surface go to FlexThemeData.dark() and change surface parameter
     onSurface: Color.fromARGB(255, 136, 136, 136),
     surfaceVariant: Color(0xffffffff),
     onSurfaceVariant: Color(0xff000000),
