@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meditamos/src/presentation/screens/home/home_viewmodel.dart';
 import 'package:meditamos/src/presentation/screens/home/library_page/library_page.dart';
+import 'package:meditamos/src/presentation/screens/home/library_page/library_page_1.dart';
 import 'package:meditamos/src/presentation/screens/home/settings_page/settings_page.dart';
 import 'package:meditamos/src/presentation/screens/home/welcome_page/welcome_page.dart';
 import 'package:meditamos/src/presentation/utils/theme/meditamos_colors.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
 
   final pages = [
     const WelcomePage(),
-    LibraryPage(),
+    LibraryPage1(),
     const SettingsPage(),
   ];
 

@@ -100,7 +100,8 @@ class MeditationsSection extends ConsumerWidget {
             ContentTypeCard(
               onTapCallback: () {
                 homeViewModel.changePage(
-                  LibraryPage(startWithLeftToggleOption: true),
+                  //buggy dont do this because you can go to another page not defined in HomeScreen pages property
+                  LibraryPage(startWithLeftToggleOption: true), 
                   1,
                 );
               },
@@ -109,6 +110,9 @@ class MeditationsSection extends ConsumerWidget {
             ContentTypeCard(
               onTapCallback: () {
                 homeViewModel.changePage(
+                  //HomeScreen.pages[1].withStartLeftOption(false),
+
+                  //buggy dont do this because you can go to another page not defined in HomeScreen pages property
                   LibraryPage(startWithLeftToggleOption: false),
                   1,
                 );

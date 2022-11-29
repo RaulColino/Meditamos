@@ -1,6 +1,6 @@
 # meditamos
 
-A new Flutter project.
+Meditamos project for UI design
 
 ## Getting Started
 

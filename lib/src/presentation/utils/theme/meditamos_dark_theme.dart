@@ -76,7 +76,7 @@ class MeditamosDarkTheme {
     surfaceVariant: Color(0xff121212),
     onSurfaceVariant: Color(0xffffffff),
     inverseSurface: Color(0xffffffff),
-    onInverseSurface: Color(0xff000000),
+    onInverseSurface: Color.fromARGB(255, 62, 62, 62),
     inversePrimary: Color(0xff635b70),
     shadow: Color.fromARGB(255, 255, 255, 255),
   );
