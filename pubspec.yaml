@@ -36,8 +36,7 @@ dependencies:
   flex_color_scheme: ^5.1.0
   #audioplayer
   just_audio: ^0.9.28
-  #handle just_audio streams
-  rxdart: ^0.27.5
+  rxdart: ^0.27.5 #handles just_audio streams
   #videoplayer
   chewie: ^1.3.4
 

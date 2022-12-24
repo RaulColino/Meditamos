@@ -24,6 +24,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.width;
+    ThemeData theme = Theme.of(context);
 
     // rebuild the widget when the todo list changes
     HomeState homeState = ref.watch(homeStateProvider);
@@ -37,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
       body: selectedPage,
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: theme.scaffoldBackgroundColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(PhosphorIcons.houseSimple),
